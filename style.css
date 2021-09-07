@@ -1,0 +1,262 @@
+@import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: whitesmoke;
+  font-family: Lato, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ------ VICTORY BOX ------ */
+.victory-box-container{
+  width: 600px;
+  height: 300px;
+  background-color: whitesmoke;
+  border-radius: 5px;
+  box-shadow: 0 10px 20px -5px rgba(0,0,0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+ 
+}
+.final-result{
+  font-family: 'Press Start 2P';
+  font-size: 60px;
+  transform: translateY(-20px);
+  animation: Result 0.5s infinite alternate;
+}
+@keyframes Result {
+  from { font-size: 40px;
+       color: rgb(0, 195, 255); 
+  }
+  
+  to { font-size: 60px;
+       color: rgb(238, 56, 165);
+  }
+
+}
+
+button {
+  position: absolute;
+  bottom: 30px;
+  cursor: pointer;
+  width: 180px;
+  height: 50px;
+  border-radius: 5px;
+  outline: none;
+  background-color: dodgerblue;
+  border: white;
+  color: white;
+  font-size: 18px;
+  box-shadow: 0 5px 0px 0px rgba(3, 69, 140, 0.844);
+  transition: all 0.1s ease-out;
+}
+
+button:hover{
+  background-color: rgb(6, 128, 250);
+}
+
+button:active {
+  box-shadow: none;
+  transform: translateY(5px);
+}
+
+/* ------ GAME CONTAINER ------ */
+
+.game-container{
+  width: 530px;
+  height: 600px;
+  background: white;
+  border-radius: 5px;
+  box-shadow: 0 10px 20px -5px rgba(0,0,0, 0.5);
+}
+
+.header {
+  background: dodgerblue;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  color: white;
+  font-size: 30px;
+}
+
+/* --- GAME MODE --- */
+.game-mode-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+input[type="radio"] {
+  opacity: 0;
+  width: 100%;
+  height: 75px;
+  position: relative;
+  top: -40px;
+  cursor: pointer;
+  z-index: 2;
+}
+.selection-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* top: 65px; */
+}
+
+.radio-container {
+  width: 95%;
+  height: 75px;
+  margin: 15px;
+  cursor: pointer;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
+
+label {
+  position: relative;
+  top: 20px;
+  left: 20px;
+  font-size: 30px;
+}
+.selected-label {
+  background: dodgerblue;
+  /* border: dodgerblue; */
+  color: white;
+  
+}
+.start {
+  position: relative;
+  margin-top: 60px;
+
+}
+
+/* --- GAME DISPLAY --- */
+.player-container, .computer-container {
+  margin: 50px;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+.far {
+  font-size: 50px;
+  margin-right: 40px;
+  User-select: none;
+}
+
+#player .far, 
+#player .choice {
+  color: dodgerblue;
+  cursor: pointer;
+}
+
+#computer .far, 
+#computer .choice {
+  color: rgb(232, 42, 42);
+}
+
+#player .far:last-of-type,
+#computer .far:last-of-type {
+  margin-right: 0;
+}
+
+.selected {
+  color: rgb(26, 26, 26) !important;
+}
+
+.reset-icon {
+  font-size: 30px;
+  cursor: pointer;
+  margin-left: 50px;
+}
+
+.result-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.result-text {
+  font-size: 40px;
+  margin: unset;
+  margin-top: 20px;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Media Query: Large Smartphone (Vertical) */
+@media screen and (max-width: 600px) {
+  .game-container {
+    width: 95%;
+    height: 580px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  .player-container {
+    margin: 50px 0 25px 25px;
+  }
+  .computer-container{
+    margin: 50px 0 25px 25px;
+  }
+
+  .far {
+    margin-right: 20px;
+  }
+
+  .reset-icon {
+    margin-top: 25px;
+    margin-left: 25px;
+  }
+}
+
+/* Media Query: iPhone (Vertical) */
+@media screen and (max-width: 376px) {
+  .game-container {
+    height: 550px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  .player-container {
+    margin: 43px 0 25px 20px;
+  }
+
+  .far {
+    font-size: 43px;
+  }
+
+  .reset-icon {
+    margin-top: 15px;
+  }
+
+  .result-container {
+    margin: 0 20px;
+  }
+}
