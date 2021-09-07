@@ -16,16 +16,16 @@ const playerScoreEl = document.getElementById('playerScore');
 const computerChoiceEl = document.getElementById('computerChoice');
 const computerScoreEl = document.getElementById('computerScore');
 
-const playerRock = document.getElementById('playerRock');
-const playerPaper = document.getElementById('playerPaper');
-const playerScissors = document.getElementById('playerScissors');
-const playerLizard = document.getElementById('playerLizard');
+const playerPierre = document.getElementById('playerPierre');
+const playerFeuille = document.getElementById('playerFeuille');
+const playerCiseaux = document.getElementById('playerCiseaux');
+const playerLézard = document.getElementById('playerLézard');
 const playerSpock = document.getElementById('playerSpock');
 
-const computerRock = document.getElementById('computerRock');
-const computerPaper = document.getElementById('computerPaper');
-const computerScissors = document.getElementById('computerScissors');
-const computerLizard = document.getElementById('computerLizard');
+const computerPierre = document.getElementById('computerPierre');
+const computerFeuille = document.getElementById('computerFeuille');
+const computerCiseaux = document.getElementById('computerCiseaux');
+const computerLézard = document.getElementById('computerLézard');
 const computerSpock = document.getElementById('computerSpock');
 
 const resultText = document.getElementById('resultText'); 
@@ -34,11 +34,11 @@ const allGameIcons = document.querySelectorAll('.far');
 
 
 const choices = {
-    rock: { name: 'Rock', defeats: ['scissors', 'lizard'] },
-    paper: { name: 'Paper', defeats: ['rock', 'spock'] },
-    scissors: { name: 'Scissors', defeats: ['paper', 'lizard'] },
-    lizard: { name: 'Lizard', defeats: ['paper', 'spock'] },
-    spock: { name: 'Spock', defeats: ['scissors', 'rock'] },
+    pierre: { name: 'Pierre', defeats: ['ciseaux', 'lézard'] },
+    feuille: { name: 'Feuille', defeats: ['pierre', 'spock'] },
+    ciseaux: { name: 'Ciseaux', defeats: ['feuille', 'lézard'] },
+    lézard: { name: 'Lézard', defeats: ['feuille', 'spock'] },
+    spock: { name: 'Spock', defeats: ['ciseaux', 'pierre'] },
 };
 
 let computerChoice = '';
@@ -62,7 +62,7 @@ function resetAll() {
    
     playerPoint = 0; 
     computerPoint = 0;
-    resultText.textContent = " Let's Get Started !"
+    resultText.textContent = " Que la partie commence !"
     computerScoreEl.textContent = computerPoint;
     playerScoreEl.textContent = playerPoint; 
     victoryBox.classList.add('hidden');
@@ -79,13 +79,13 @@ function whoWin() {
     if ( playerPoint === Number (winNumber)){
         gameContainer.classList.add('hidden');
         victoryBox.classList.remove('hidden');
-        finalResult.textContent = 'YOU WIN'; 
+        finalResult.textContent = 'VICTOIRE'; 
         startConfetti();
     }
     if (computerPoint === Number (winNumber)){
         gameContainer.classList.add('hidden');
         victoryBox.classList.remove('hidden');
-        finalResult.textContent = 'YOU LOOSE';
+        finalResult.textContent = 'DÉFAITE';
     }
 }
 
@@ -94,14 +94,14 @@ function checkResult(playerChoice, computerChoice) {
     const choice = choices[playerChoice];
 
     if ( playerChoice === computerChoice){
-        resultText.textContent = "It's a Tie !!";
+        resultText.textContent = "Égalité !!";
 
     } else if ( choice.defeats.indexOf(computerChoice) === -1){
-        resultText.textContent = ' You Lost !!!';
+        resultText.textContent = ' Perdu !!!';
         computerPoint ++; 
         computerScoreEl.textContent = computerPoint; 
     } else {
-        resultText.textContent = 'YOU WON !!!';
+        resultText.textContent = 'GAGNÉ !!!';
         playerPoint ++; 
         playerScoreEl.textContent = playerPoint; 
         
@@ -114,24 +114,24 @@ function checkResult(playerChoice, computerChoice) {
 function computerChoiceDisplay(computerChoice) {
 
     switch(computerChoice) {
-        case 'rock': 
-            computerRock.classList.add('selected'); 
-            computerChoiceEl.textContent = ' -- Rock'; 
+        case 'pierre': 
+            computerPierre.classList.add('selected'); 
+            computerChoiceEl.textContent = ' -- Pierre'; 
             break;
         
-        case 'paper': 
-            computerPaper.classList.add('selected'); 
-            computerChoiceEl.textContent = ' -- Paper'; 
+        case 'feuille': 
+            computerFeuille.classList.add('selected'); 
+            computerChoiceEl.textContent = ' -- Feuille'; 
             break;
 
-        case 'scissors': 
-            computerScissors.classList.add('selected'); 
-            computerChoiceEl.textContent = ' -- Scissors'; 
+        case 'ciseaux': 
+            computerCiseaux.classList.add('selected'); 
+            computerChoiceEl.textContent = ' -- Ciseaux'; 
             break;
 
-        case 'lizard': 
-            computerLizard.classList.add('selected'); 
-            computerChoiceEl.textContent = ' -- Lizard'; 
+        case 'lézard': 
+            computerLézard.classList.add('selected'); 
+            computerChoiceEl.textContent = ' -- Lézard'; 
             break;
 
         case 'spock': 
@@ -148,16 +148,16 @@ function computerRandomChoice() {
     let randomNumber = Math.random(); 
     
     if (randomNumber < 0.2) {
-        computerChoice = 'rock'; 
+        computerChoice = 'pierre'; 
 
     } else if ( randomNumber < 0.4 ){
-        computerChoice = 'paper'; 
+        computerChoice = 'feuille'; 
 
     } else if ( randomNumber < 0.6) {
-        computerChoice = 'scissors';
+        computerChoice = 'ciseaux';
 
     } else if ( randomNumber < 0.8){
-        computerChoice = 'lizard';
+        computerChoice = 'lézard';
 
     } else {
         computerChoice = 'spock'
@@ -186,24 +186,24 @@ function select(playerChoice) {
     // Use a switch statement
 
     switch(playerChoice) {
-        case 'rock': 
-            playerRock.classList.add('selected'); 
-            playerChoiceEl.textContent = ' -- Rock'; 
+        case 'pierre': 
+            playerPierre.classList.add('selected'); 
+            playerChoiceEl.textContent = ' -- Pierre'; 
             break;
         
-        case 'paper': 
-            playerPaper.classList.add('selected'); 
-            playerChoiceEl.textContent = ' -- Paper'; 
+        case 'feuille': 
+            playerFeuille.classList.add('selected'); 
+            playerChoiceEl.textContent = ' -- Feuille'; 
             break;
 
-        case 'scissors': 
-            playerScissors.classList.add('selected'); 
-            playerChoiceEl.textContent = ' -- Scissors'; 
+        case 'ciseaux': 
+            playerCiseaux.classList.add('selected'); 
+            playerChoiceEl.textContent = ' -- Ciseaux'; 
             break;
 
-        case 'lizard': 
-            playerLizard.classList.add('selected'); 
-            playerChoiceEl.textContent = ' -- Lizard'; 
+        case 'lézard': 
+            playerLézard.classList.add('selected'); 
+            playerChoiceEl.textContent = ' -- Lézard'; 
             break;
 
         case 'spock': 

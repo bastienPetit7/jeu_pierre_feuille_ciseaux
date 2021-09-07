@@ -206,7 +206,7 @@ h2 {
   display: none;
 }
 
-/* Media Query: Large Smartphone (Vertical) */
+/* Media Query */
 @media screen and (max-width: 600px) {
   .game-container {
     width: 95%;
@@ -234,7 +234,7 @@ h2 {
   }
 }
 
-/* Media Query: iPhone (Vertical) */
+/* Media Query */
 @media screen and (max-width: 376px) {
   .game-container {
     height: 550px;
